@@ -1,32 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import StyledWrapper from './styled/StyledWrapper'
 import StyledButton from './styled/StyledButton'
+import StyledWrapper from './styled/StyledWrapper'
 
 const ControlGroup = ({
-  handleOpen,
+  onClose
 }) => {
+
   return (
     <StyledWrapper>
       <StyledButton
-        onClick={() => alert('sss')}
+        // onClick={() => alert('sss')}
         disabled={false}
       >
-        Public
+        Submit
       </StyledButton>
       <StyledButton
-        onClick={() => handleOpen()}
+        onClick={() => onClose()}
         disabled={false}
       >
-        Schedule
+        Cancel
       </StyledButton>
     </StyledWrapper>
   )
 }
 
 ControlGroup.propTypes = {
-  handleOpen: PropTypes.func,
+  onClose: PropTypes.func,
 }
 
 export default ControlGroup

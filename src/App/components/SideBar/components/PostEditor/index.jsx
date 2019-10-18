@@ -9,6 +9,7 @@ import StyledWrapper from './styled/StyledWrapper'
 const PostEditor = ({
   fields,
   handleChange,
+  handleOpen,
 }) => {
   return (
     <StyledWrapper>
@@ -22,7 +23,9 @@ const PostEditor = ({
           inputType={field.inputType}
         />
       ))}
-      <ControlGroup />
+      <ControlGroup
+        handleOpen={handleOpen}
+      />
     </StyledWrapper>
   )
 }
@@ -30,6 +33,7 @@ const PostEditor = ({
 PostEditor.propTypes = {
   fields: PropTypes.array,
   handleChange: PropTypes.func,
+  handleOpen: PropTypes.func,
 }
 
 export default PostEditor
