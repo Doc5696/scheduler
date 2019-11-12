@@ -26,3 +26,8 @@ export const createNewPost = post => dispatch => {
       dispatch(createPost(newPost))
     })
 }
+
+export const scheduleNewPost = post => {
+  const endPoint = `${baseUrl}/shedule`
+  axios.post(endPoint, post)
+}

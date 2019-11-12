@@ -10,6 +10,7 @@ import StyledAside from './styled/StyledAside'
 
 const SideBar = ({
   onCreate,
+  onSchedule,
 }) => {
 
   const [open, setOpen] = useState(false)
@@ -47,6 +48,8 @@ const SideBar = ({
       <Modal
         open={open}
         onClose={handleClose}
+        onSchedule={onSchedule}
+        post={post}
       />
       <PostEditor
         fields={inputs}
@@ -61,6 +64,7 @@ const SideBar = ({
 
 SideBar.propTypes = {
   onCreate: PropTypes.func,
+  onSchedule: PropTypes.func,
 }
 
 export default SideBar

@@ -9,7 +9,8 @@ import StyledWrapper from './styled/StyledWrapper'
 const App = ({
   posts,
   fetchPosts,
-  createNewPost
+  createNewPost,
+  scheduleNewPost,
 }) => {
   useEffect(() => {
     fetchPosts()
@@ -21,6 +22,7 @@ const App = ({
       />
       <SideBar
         onCreate={createNewPost}
+        onSchedule={scheduleNewPost}
       />
     </StyledWrapper>
   )
@@ -29,7 +31,8 @@ const App = ({
 App.propTypes = {
   posts: PropTypes.array,
   fetchPosts: PropTypes.func,
-  createNewPost: PropTypes.func
+  createNewPost: PropTypes.func,
+  scheduleNewPost: PropTypes.func,
 }
 
 export default App

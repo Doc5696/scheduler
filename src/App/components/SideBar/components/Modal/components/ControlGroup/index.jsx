@@ -5,13 +5,15 @@ import StyledButton from './styled/StyledButton'
 import StyledWrapper from './styled/StyledWrapper'
 
 const ControlGroup = ({
-  onClose
+  onClose,
+  onSchedule,
+  post,
 }) => {
 
   return (
     <StyledWrapper>
       <StyledButton
-        // onClick={() => alert('sss')}
+        onClick={() => onSchedule(post)}
         disabled={false}
       >
         Submit
@@ -28,6 +30,8 @@ const ControlGroup = ({
 
 ControlGroup.propTypes = {
   onClose: PropTypes.func,
+  onSchedule: PropTypes.func,
+  post: PropTypes.object,
 }
 
 export default ControlGroup
