@@ -10,6 +10,7 @@ import StyledAside from './styled/StyledAside'
 
 const SideBar = ({
   onCreate,
+  onSchedule,
 }) => {
 
   const [open, setOpen] = useState(false)
@@ -34,12 +35,22 @@ const SideBar = ({
     })
   }
 
-  const handleSave = async () => {
-    await onCreate(post)
+  const setEmptyPost = () => {
     setPost({
       headline: '',
       body: '',
     })
+  }
+
+  const handleSave = async () => {
+    await onCreate(post)
+    setEmptyPost()
+  }
+
+  const handleSchedule = async () => {
+    await onSchedule(post)
+    setEmptyPost()
+    handleClose()
   }
 
   return (
@@ -47,6 +58,8 @@ const SideBar = ({
       <Modal
         open={open}
         onClose={handleClose}
+        handleChange={handleChange}
+        onSchedule={handleSchedule}
       />
       <PostEditor
         fields={inputs}
@@ -61,6 +74,7 @@ const SideBar = ({
 
 SideBar.propTypes = {
   onCreate: PropTypes.func,
+  onSchedule: PropTypes.func,
 }
 
 export default SideBar

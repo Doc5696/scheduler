@@ -11,14 +11,19 @@ import StyledWrapper from './styled/StyledWrapper'
 const Modal = ({
   open,
   onClose,
+  handleChange,
+  onSchedule,
 }) => {
   
   return (
     <Background open={open}>
       <StyledWrapper>
-        <TimePicker />
+        <TimePicker
+          handleChange={handleChange}
+        />
         <ControlGroup
           onClose={onClose}
+          onSchedule={onSchedule}
         />
       </StyledWrapper>
     </Background>
@@ -28,6 +33,8 @@ const Modal = ({
 Modal.propTypes = {
   open: PropTypes.bool,
   onClose: PropTypes.func,
+  handleChange: PropTypes.func,
+  onSchedule: PropTypes.func,
 }
 
 export default Modal
