@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 import TimePicker from './components/TimePicker'
@@ -14,7 +14,7 @@ const Modal = ({
   handleChange,
   onSchedule,
 }) => {
-  
+
   return (
     <Background open={open}>
       <StyledWrapper>
@@ -22,8 +22,8 @@ const Modal = ({
           handleChange={handleChange}
         />
         <ControlGroup
-          onClose={onClose}
           onSchedule={onSchedule}
+          onClose={onClose}
         />
       </StyledWrapper>
     </Background>

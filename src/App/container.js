@@ -16,7 +16,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchPosts: () => dispatch(fetchPosts()),
   createNewPost: post => dispatch(createNewPost(post)),
-  scheduleNewPost: post => dispatch(scheduleNewPost(post))
+  scheduleNewPost: post => dispatch(scheduleNewPost(post)),
 })
 
 
