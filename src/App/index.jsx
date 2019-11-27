@@ -11,14 +11,16 @@ const App = ({
   fetchPosts,
   createNewPost,
   scheduleNewPost,
+  fetchScheduledPost,
 }) => {
   useEffect(() => {
     fetchPosts()
-  }, [fetchPosts, posts.length])
+  }, [fetchPosts])
   return (
     <StyledWrapper>
       <FeedLine
         data={posts}
+        fetchScheduledPost={fetchScheduledPost}
       />
       <SideBar
         onCreate={createNewPost}
@@ -33,6 +35,7 @@ App.propTypes = {
   fetchPosts: PropTypes.func,
   createNewPost: PropTypes.func,
   scheduleNewPost: PropTypes.func,
+  fetchScheduledPost: PropTypes.func,
 }
 
 export default App

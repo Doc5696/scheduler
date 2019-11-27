@@ -1,10 +1,11 @@
 import axios from 'axios'
+import socketIOClient from 'socket.io-client'
 
 import {
   getPosts,
   createPost,
-  updatePost,
-  deletePost
+  // updatePost,
+  // deletePost
 } from './actions'
 
 const baseUrl = 'http://localhost:8000/api'
@@ -16,6 +17,13 @@ export const fetchPosts = () => dispatch => {
       const posts = res.data
       dispatch(getPosts(posts))
     })
+}
+
+export const fetchScheduledPost = () => dispatch => {
+  const socket = socketIOClient('localhost:8000')
+  socket.on('newPost', (post) => {
+    dispatch(createPost(post))
+  })
 }
 
 export const createNewPost = post => dispatch => {

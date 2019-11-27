@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import Post from './components/Post'
@@ -6,8 +6,13 @@ import Post from './components/Post'
 import StyledMain from './styled/StyledMain'
 
 const FeedLine = ({
-  data
+  data,
+  fetchScheduledPost,
 }) => {
+  useEffect(() => {
+    fetchScheduledPost()
+  }, [ fetchScheduledPost ])
+
   return (
     <StyledMain>
       {data.map(post => (
@@ -23,6 +28,7 @@ const FeedLine = ({
 
 FeedLine.propTypes = {
   data: PropTypes.array,
+  fetchScheduledPost: PropTypes.func,
 }
 
 export default FeedLine
